@@ -8,8 +8,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <CoreMedia/CMMetadata.h>
 #import <CoreAudioTypes/CoreAudioTypes.h>
-
-
+#ifndef kCGImagePropertyHEIFDictionary
+#define kCGImagePropertyHEIFDictionary CFSTR("HEIF")
+#endif
 // 自定义进度条视图类
 @interface DYYYManager(){
     AVAssetExportSession *session;    // 资源导出会话
