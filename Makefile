@@ -19,8 +19,11 @@ define Package/DYYY
   Depends: firmware (>= 14.0), mobilesubstrate
 endef
 
-# 直接输出到根路径
-export THEOS_PACKAGE_DIR = $(CURDIR)
+# 在GitHub Actions中运行时的特殊配置
+ifeq ($(GITHUB_ACTIONS),true)
+    export INSTALL = 0
+    export FINALPACKAGE = 1
+endif
 
 # TARGET
 ARCHS = arm64 arm64e
